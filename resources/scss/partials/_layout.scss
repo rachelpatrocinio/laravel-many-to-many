@@ -1,0 +1,49 @@
+.bg-beige{
+    background-color: #FAF7F2;
+}
+
+.bg-brown{
+    background-color: #694E3C;
+}
+
+.bg-lightbrown{
+    background-color: #9A7A5C;
+}
+
+button.bg-brown,
+button.bg-lightbrown{
+    width: 200px;
+    border-radius: 10px;
+    padding: 10px;
+    border: none;
+    color: #FAF7F2;
+
+    &:hover{
+        background-color: #FAF7F2;
+        color:#694E3C;
+        transition: 0.8s;
+    }
+}
+
+.logo-title img{
+    width: 300px;
+}
+
+a{
+    color:#694E3C;
+    text-decoration: none;
+
+    &:hover{
+        cursor: pointer;
+    }
+}
+
+.related a{
+    &:hover{
+        text-decoration: underline;
+    }
+}
+
+ul,li,menu{
+    list-style: none;
+}
