@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Project;
+use App\Models\Technology;
 use App\Models\Type;
 use Illuminate\Support\Str;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -19,9 +20,10 @@ class ProjectSeeder extends Seeder
     
     public function run(Faker $faker): void
     {
-        DB::table('projects')->truncate();
+        // DB::table('projects')->truncate();
         $types = Type::all();
         $types_ids = $types->pluck('id')->all();
+        $technologies_ids = Technology::all()->pluck('id')->all();
 
         for($i = 0; $i < 10; $i++){
             $new_project = new Project();
@@ -34,6 +36,10 @@ class ProjectSeeder extends Seeder
             $new_project->github_url = $faker->url();
             $new_project->type_id = $faker->randomElement($types_ids);
             $new_project->save();   
+
+        
+            $random_technologies_ids = $faker->randomElements($technologies_ids);
+            $new_project->technologies()->attach($random_technologies_ids);
         }   
     }
 }
