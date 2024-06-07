@@ -17,7 +17,7 @@ class TypeSeeder extends Seeder
     public function run(Faker $faker): void
     {
 
-        DB::table('types')->truncate();
+        // DB::table('types')->truncate();
         $types = ['Type1', 'Type2', 'Type3', 'Type4'];
         foreach($types as $type){
             $new_type = new Type();
