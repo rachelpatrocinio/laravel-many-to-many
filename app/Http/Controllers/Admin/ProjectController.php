@@ -7,8 +7,8 @@ use App\Models\Project;
 use App\Models\Type;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
-use App\Http\Requests\StorePostRequest;
-use App\Http\Requests\UpdateTypeRequest;
+use App\Http\Requests\StoreProjectRequest;
+use App\Http\Requests\UpdateProjectRequest;
 use App\Models\Technology;
 
 class ProjectController extends Controller
@@ -27,7 +27,7 @@ class ProjectController extends Controller
         return view('admin.projects.create', compact('types', 'technologies'));
     }
 
-    public function store(StorePostRequest $request)
+    public function store(StoreProjectRequest $request)
     {
         // $request->validate([
         //     'project_title'=>'required|max:255',
@@ -57,7 +57,7 @@ class ProjectController extends Controller
         $new_project = Project::create($form_data);
 
         if ($request->has('technologies')) {
-            $new_project->technologies()->sync($request->technologies);
+            $new_project->technologies()->attach($request->technologies);
         }
         //sync aggiunge alla tabella pivot quello che arriva dalla richiesta
 
@@ -74,11 +74,12 @@ class ProjectController extends Controller
     public function edit(Project $project)
     {
         $types = Type::all();
-        return view('admin.projects.edit', compact('project', 'types'));
+        $technologies = Technology::orderBy('name','asc')->get();
+        return view('admin.projects.edit', compact('project', 'types', 'technologies'));
     }
 
 
-    public function update(UpdateTypeRequest $request, Project $project)
+    public function update(UpdateProjectRequest $request, Project $project)
     {
         $form_data = $request->all();
         $base_slug = Str::slug($form_data['project_title']);
@@ -94,7 +95,14 @@ class ProjectController extends Controller
             }
         } while ($find !== null);
         $form_data['slug'] = $slug;
-        $project->update($form_data);  
+        $project->update($form_data); 
+
+        if ($request->has('technologies')) {
+            $project->technologies()->sync($request->technologies);
+        }
+        else {
+            $project->technologies()->detach();
+        }
 
         return to_route('admin.projects.show', $project); 
     }

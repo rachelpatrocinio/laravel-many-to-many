@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
-class UpdateTypeRequest extends FormRequest
+class StorePostRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,8 +23,11 @@ class UpdateTypeRequest extends FormRequest
     public function rules(): array
     {
         return [
-            "name"=>'required|max:255',
-            "description"=>'required'
+            'project_title'=>'required|max:255',
+            'project_description'=>'required|max:255',
+            'github_url'=>'required',
+            'type_id'=>'required|exists:types,id',
+            'technologies'=>'exists:technologies,id'
         ];
     }
 }
