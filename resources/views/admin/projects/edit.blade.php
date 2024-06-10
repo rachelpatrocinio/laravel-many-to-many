@@ -19,7 +19,9 @@
                     <input type="text" class="form-control" id="slug" name="slug" placeholder="Slug" value="{{old('slug', $project->slug)}}">
                 </div>
                 <div class="mb-5">
-                    <label for="type_id">Type</label>
+                    <label for="type_id">
+                        <img src="{{ Vite::asset('resources/img/type.png')}}" alt="Type">
+                    </label>
                     <div>
                         <select id="type_id" name="type_id" class="form-select">
                             <option value=""> ~ Select Type ~ </option>
@@ -28,6 +30,17 @@
                             @endforeach
                           </select>
                     </div>
+                </div>
+                <div class="mb-5 d-flex justify-content-between align-items-center">
+                    <div>
+                        <img src="{{ Vite::asset('resources/img/technologies.png')}}" alt="Technologies">
+                    </div>
+                    @foreach($technologies as $technology)
+                    <div class="form-check">
+                        <input @checked(in_array($technology->id, old('technologies', $project->technologies->pluck('id')->all()))) type="checkbox" name="technologies[]" class="form-check-input" value="{{$technology->id}}" id="{{$technology->id}}">
+                        <label for="{{$technology->id}}">{{ $technology->name }}</label>
+                    </div>
+                    @endforeach
                 </div>
                 <div class="mb-3">
                     <label for="project_description" class="form-label">

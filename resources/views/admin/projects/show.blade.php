@@ -23,9 +23,11 @@
             </div>
             <div class="mb-3">
                 <img src="{{Vite::asset('resources/img/technologies.png')}}" alt="Technologies">
-                @foreach($project->technologies as $technology)
-                <p class="ms-5">{{ $technology->name }}</p>
-                @endforeach
+                <div class="d-flex">
+                    @foreach($project->technologies as $technology)
+                    <p class="ms-5">{{ $technology->name }}</p>
+                    @endforeach
+                </div>
             </div>
             <div class="mb-3">
                 <img src="{{Vite::asset('resources/img/project-description.png')}}" alt="Project Title">
