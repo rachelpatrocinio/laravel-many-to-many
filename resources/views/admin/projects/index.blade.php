@@ -12,15 +12,24 @@
         </div>
         <div class="projects-cards p-0">
           @foreach($projects as $project)
-          <div class="card my-4 p-4 flex-row justify-content-between align-items-end">
+          <div class="card my-4 p-4 flex-row justify-content-between">
             <div>
               <h4><a href="{{ route('admin.projects.show', $project)}}">{{$project->project_title}}</a></h4>
               <h6>{{$project->slug}}</h6>
               <p><a target="_blank" href="{{ $project->github_url }}">{{$project->github_url}}</a></p>
             </div>
-            <a href="{{ route('admin.projects.show', $project)}}">
-              <button class="bg-lightbrown">More Details</button>
-            </a>
+            <div>
+              <form class="mb-5 text-end" action="{{ route('admin.projects.destroy', $project)}}" method="POST">
+                @method('DELETE')
+                @csrf
+                <button class="btn">
+                  <img src="{{ Vite::asset('resources/img/icons/bin.png')}}" alt="Delete">
+                </button>
+              </form>
+              <a href="{{ route('admin.projects.show', $project)}}">
+                <button class="bg-lightbrown">More Details</button>
+              </a>
+            </div>
           </div>
           @endforeach
         </div>

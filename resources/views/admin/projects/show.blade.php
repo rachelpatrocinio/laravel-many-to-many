@@ -53,7 +53,7 @@
                 @method('DELETE')
                 @csrf
                 <button class="bg-red">Delete</button>
-              </form>
+            </form>
         </div>
     </div>
 </div>
