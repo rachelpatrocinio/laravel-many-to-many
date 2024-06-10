@@ -15,6 +15,11 @@
                     <button class="bg-lightbrown">Edit</button>
                 </a>
             </div>
+            <form action="{{ route('admin.technologies.destroy', $technology)}}" method="POST">
+                @csrf
+                @method('DELETE')
+                <button class="bg-red">Delete</button>
+            </form>
         </div>
     </div>
 </div>
