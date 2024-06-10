@@ -22,6 +22,12 @@
                 @endif
             </div>
             <div class="mb-3">
+                <img src="{{Vite::asset('resources/img/technologies.png')}}" alt="Technologies">
+                @foreach($project->technologies as $technology)
+                <p class="ms-5">{{ $technology->name }}</p>
+                @endforeach
+            </div>
+            <div class="mb-3">
                 <img src="{{Vite::asset('resources/img/project-description.png')}}" alt="Project Title">
                 <p class="ms-5">{{$project->project_description}}</p>
             </div>

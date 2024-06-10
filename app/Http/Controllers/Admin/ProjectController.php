@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdateTypeRequest;
+use App\Models\Technology;
 
 class ProjectController extends Controller
 {
@@ -22,7 +23,8 @@ class ProjectController extends Controller
     public function create()
     {
         $types = Type::all();
-        return view('admin.projects.create', compact('types'));
+        $technologies = Technology::orderBy('name','asc')->get();
+        return view('admin.projects.create', compact('types', 'technologies'));
     }
 
     public function store(StorePostRequest $request)
@@ -53,6 +55,12 @@ class ProjectController extends Controller
 
 
         $new_project = Project::create($form_data);
+
+        if ($request->has('technologies')) {
+            $new_project->technologies()->sync($request->technologies);
+        }
+        //sync aggiunge alla tabella pivot quello che arriva dalla richiesta
+
         return to_route('admin.projects.show', $new_project);
     }
 

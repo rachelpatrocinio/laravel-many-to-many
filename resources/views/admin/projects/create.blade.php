@@ -25,6 +25,17 @@
                           </select>
                     </div>
                 </div>
+                <div class="mb-5 d-flex justify-content-between align-items-center">
+                    <div>
+                        <img src="{{ Vite::asset('resources/img/technologies.png')}}" alt="Technologies">
+                    </div>
+                    @foreach($technologies as $technology)
+                    <div class="form-check">
+                        <input type="checkbox" name="technologies[]" class="form-check-input" value="{{$technology->id}}" id="{{$technology->id}}">
+                        <label for="{{$technology->id}}">{{ $technology->name }}</label>
+                    </div>
+                    @endforeach
+                </div>
                 <div class="mb-3">
                     <label for="project_description" class="form-label">
                         <img src="{{Vite::asset('resources/img/project-description.png')}}" alt="Project Description">
@@ -37,7 +48,7 @@
                     <label for="github_url" class="form-label">
                         <img src="{{Vite::asset('resources/img/github-url.png')}}" alt="Github Url">
                     </label>
-                    <input type="text" class="form-control" id="github_url" name="github_url" placeholder="Https://.." value="{{old('github_url')}}">
+                    <input type="text" class="form-control" id="github_url" name="github_url" placeholder="https://.." value="{{old('github_url')}}">
                 </div>
                 <div class="text-end">
                     <button class="bg-brown">SAVE</button>

@@ -26,7 +26,8 @@ class StorePostRequest extends FormRequest
             'project_title'=>'required|max:255',
             'project_description'=>'required|max:255',
             'github_url'=>'required',
-            'type_id'=>'required|exists:types,id'
+            'type_id'=>'required|exists:types,id',
+            'technologies'=>'exists:technologies,id'
         ];
     }
 }
