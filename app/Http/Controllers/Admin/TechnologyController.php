@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreTechnologyRequest;
+use App\Http\Requests\UpdateTechnologyRequest;
 use App\Models\Technology;
 use Illuminate\Http\Request;
 
@@ -42,9 +43,11 @@ class TechnologyController extends Controller
     }
 
 
-    public function update(Request $request, Technology $technology)
+    public function update(UpdateTechnologyRequest $request, Technology $technology)
     {
-        //
+        $form_data = $request->validated();
+        $technology->update($form_data);
+        return to_route('admin.technologies.show', $technology);
     }
 
 
