@@ -6,10 +6,10 @@
             <img src="{{Vite::asset('resources/img/techs.png')}}" alt="Technologies">
         </div>
         <div class="mt-5">
-            <ul>
+            <ul class="technologies-list">
             @foreach($technologies as $technology)
             <li>
-                <h4>{{ $technology->name }}</h4>
+                <h4><a href="{{ route('admin.technologies.show', $technology)}}">{{ $technology->name }}</a></h4>
                 <p>{{ $technology->description }}</p>
             </li>
             @endforeach

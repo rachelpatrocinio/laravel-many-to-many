@@ -2,7 +2,7 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <form action="" method="POST" class="my-5">
+        <form action="{{ route('admin.technologies.store')}}" method="POST" class="my-5">
             @csrf
             <div class="mb-3">
                 <label for="name" class="form-label">
