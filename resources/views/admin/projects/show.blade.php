@@ -41,12 +41,19 @@
             @endforeach
         </div>
         <div class="d-flex justify-content-between mt-3">
-            <a href="{{ route('admin.projects.index', $project)}}">
-                <button class="bg-lightbrown">Go Back to Projects</button>
-            </a>
-            <a href="{{ route('admin.projects.edit', $project)}}">
-                <button class="bg-brown">Edit</button>
-            </a>
+            <div>
+                <a href="{{ route('admin.projects.index', $project)}}">
+                    <button class="bg-lightbrown">Go Back to Projects</button>
+                </a>
+                <a href="{{ route('admin.projects.edit', $project)}}">
+                    <button class="bg-brown">Edit</button>
+                </a>
+            </div>
+            <form action="{{ route('admin.projects.destroy', $project)}}" method="POST">
+                @method('DELETE')
+                @csrf
+                <button class="bg-red">Delete</button>
+              </form>
         </div>
     </div>
 </div>
