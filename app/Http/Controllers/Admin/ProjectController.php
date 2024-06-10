@@ -29,13 +29,7 @@ class ProjectController extends Controller
 
     public function store(StoreProjectRequest $request)
     {
-        // $request->validate([
-        //     'project_title'=>'required|max:255',
-        //     'project_description'=>'required|max:255',
-        //     'github_url'=>'required'
-        // ]);
       
-
         $form_data= $request->all();
 
         $base_slug = Str::slug($form_data['project_title']);
