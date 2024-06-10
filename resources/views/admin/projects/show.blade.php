@@ -13,7 +13,7 @@
             </div>
             <div class="mb-3">
                 <img src="{{Vite::asset('resources/img/github-url.png')}}" alt="Github Url">
-                <p class="ms-5"><a href="#">{{$project->github_url}}</a></p>
+                <p class="ms-5"><a target="_blank" href="{{ $project->github_url }}">{{$project->github_url}}</a></p>
             </div>
             <div class="mb-3">
                 <img src="{{Vite::asset('resources/img/type.png')}}" alt="Github Url">

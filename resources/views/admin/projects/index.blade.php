@@ -4,8 +4,11 @@
 <section class="projects my-5">
   <div class="container">
       <div class="row">
-        <div class="logo-title">
+        <div class="logo-title d-flex justify-content-between align-items-center p-0">
           <img src="{{ Vite::asset('resources/img/my-projects.png')}}" alt="">
+          <a href="{{ route('admin.projects.create')}}">
+            <button class="bg-brown">Add New Project</button>
+          </a>
         </div>
           <table class="table my-5">
               <thead>
@@ -25,7 +28,7 @@
                   <td>{{$project->project_title}}</td>
                   <td>{{$project->slug}}</td>
                   <td>{{$project->project_description}}</td>
-                  <td>{{$project->github_url}}</td>
+                  <td><a target="_blank" href="{{ $project->github_url }}">{{$project->github_url}}</a></td>
                   <td><a href="{{ route('admin.projects.show', $project)}}">Details</a></td>
                   <td><a href="{{ route('admin.projects.edit', $project)}}">Edit</a></td>
                   <td>
