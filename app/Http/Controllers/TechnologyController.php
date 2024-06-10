@@ -16,7 +16,7 @@ class TechnologyController extends Controller
 
     public function create()
     {
-        //
+        return view('admin.technologies.create');
     }
 
 

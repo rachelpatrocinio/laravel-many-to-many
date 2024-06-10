@@ -5,14 +5,19 @@
         <div class="logo-title">
             <img src="{{Vite::asset('resources/img/techs.png')}}" alt="Technologies">
         </div>
-        <div class="my-5">
+        <div class="mt-5">
+            <ul>
             @foreach($technologies as $technology)
-            <h3>
-                {{ $technology->name }}
-            </h3>
-            <p>{{ $technology->description }}</p>
+            <li>
+                <h4>{{ $technology->name }}</h4>
+                <p>{{ $technology->description }}</p>
+            </li>
             @endforeach
+        </ul>
         </div>
+        <a class="mt-3" href="{{ route('admin.technologies.create')}}">
+            <button class="bg-brown">Add Technology</button>
+        </a>
     </div>
 </div>
 @endsection
