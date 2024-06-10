@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreTechnologyRequest;
 use App\Models\Technology;
 use Illuminate\Http\Request;
 
@@ -21,9 +22,11 @@ class TechnologyController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function store(StoreTechnologyRequest $request)
     {
-        //
+        $form_data = $request->all();
+        $new_technology = Technology::create($form_data);
+        return to_route('admin.technologies.show', $new_technology);
     }
 
 
