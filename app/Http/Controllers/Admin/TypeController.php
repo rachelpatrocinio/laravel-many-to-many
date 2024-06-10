@@ -50,7 +50,10 @@ class TypeController extends Controller
      */
     public function update(UpdateTypeRequest $request, Type $type)
     {
-        //
+        $form_data = $request->validated();
+        $type->update($form_data);
+        return to_route('admin.types.show', $type);
+
     }
 
     /**
