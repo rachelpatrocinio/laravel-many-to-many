@@ -12,7 +12,7 @@
             </a>
         </div>
         <div class="my-5">
-            <ul>
+            <ul class="types-list">
               @foreach($types as $type)
               <li>
                 <h4><a href="{{ route('admin.types.show', $type)}}">{{ $type->name}}</a></h4>

@@ -10,8 +10,13 @@
     background-color: #9A7A5C;
 }
 
+.bg-red{
+    background-color: #FB6962;
+}
+
 button.bg-brown,
-button.bg-lightbrown{
+button.bg-lightbrown,
+button.bg-red{
     width: 200px;
     border-radius: 10px;
     padding: 10px;
@@ -38,7 +43,8 @@ a{
     }
 }
 
-.related a{
+.related a,
+.types-list a{
     &:hover{
         text-decoration: underline;
     }
