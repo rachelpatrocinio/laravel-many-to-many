@@ -48,10 +48,15 @@ a{
 }
 
 .related a,
-.types-list a,
-.technologies-list a{
+.types-list a{
     &:hover{
         text-decoration: underline;
+    }
+}
+
+.technologies-list img{
+    &:hover{
+        scale: 1.2;
     }
 }
 

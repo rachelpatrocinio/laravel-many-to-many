@@ -9,14 +9,15 @@
             </a>
         </div>
         <div class="my-5">
-            <ul class="technologies-list">
-            @foreach($technologies as $technology)
-            <li class="mb-5">
-                <img src="{{ Vite::asset("resources/img/technologies/$technology->thumb")}}" alt="{{ $technology->name }}">
-                <p>{{ $technology->description }}</p>
-            </li>
-            @endforeach
-        </ul>
+            <ul class="technologies-list d-flex justify-content-around align-items-center p-0">
+                @foreach($technologies as $technology)
+                <li class="mb-5">
+                    <a href="{{ route('admin.technologies.show', $technology)}}">
+                        <img src="{{ Vite::asset("resources/img/technologies/$technology->thumb")}}" alt="{{ $technology->name }}">
+                    </a>
+                </li>
+                @endforeach
+            </ul>
         </div>
         
     </div>

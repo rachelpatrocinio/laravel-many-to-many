@@ -3,7 +3,9 @@
 <div class="container">
     <div class="row my-5">
         <div class="card mb-3 p-5">
-            <h2>{{ $technology->name }}</h2>
+            <div class="mb-3 text-center">
+                <img src="{{ Vite::asset("resources/img/technologies/$technology->thumb")}}" alt="{{ $technology->name }}">
+            </div>
             <p>{{ $technology->description }}</p>
         </div>
         <div class="d-flex justify-content-between p-0">
