@@ -18,7 +18,7 @@ class TypeSeeder extends Seeder
     {
 
         // DB::table('types')->truncate();
-        $types = ['Type1', 'Type2', 'Type3', 'Type4'];
+        $types = ['FrontEnd', 'Backend', 'FullStack', 'Design', 'DevOps'];
         foreach($types as $type){
             $new_type = new Type();
             $new_type->name = $type;

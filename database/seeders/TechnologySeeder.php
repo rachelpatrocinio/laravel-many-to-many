@@ -15,21 +15,34 @@ class TechnologySeeder extends Seeder
     public function run(Faker $faker): void
     {
         $technologies = [
-        ['name'=>'js',
-         'thumb' => 'js.png'
+        [
+            'name'=>'js',
+            'thumb' => 'js.png'
         ],
-        ['name'=>'php',
-         'thumb' => 'php.png'
+        [
+            'name'=>'php',
+            'thumb' => 'php.png'
         ],
-        ['name'=>'vue',
-         'thumb' => 'document.png'
+        [
+            'name'=>'vue',
+            'thumb' => 'vue.png'
         ],
-        ['name'=>'laravel',
-         'thumb' => 'laravel.png'
+        [
+            'name'=>'laravel',
+            'thumb' => 'laravel.png'
         ],
-        ['name'=>'mysql',
-         'thumb' => 'mysql.png'
-         ]
+        [
+            'name'=>'mysql',
+            'thumb' => 'mysql.png'
+        ],
+        [
+            'name'=>'html',
+            'thumb' => 'html-5.png'
+        ],
+        [
+            'name'=>'css',
+            'thumb' => 'css-3.png'
+        ]
     ];
         foreach($technologies as $technology){
             $new_technology = new Technology();

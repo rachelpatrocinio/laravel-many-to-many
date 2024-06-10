@@ -11,8 +11,8 @@
         <div class="my-5">
             <ul class="technologies-list">
             @foreach($technologies as $technology)
-            <li>
-                <h4><a href="{{ route('admin.technologies.show', $technology)}}">{{ $technology->name }}</a></h4>
+            <li class="mb-5">
+                <img src="{{ Vite::asset("resources/img/technologies/$technology->thumb")}}" alt="{{ $technology->name }}">
                 <p>{{ $technology->description }}</p>
             </li>
             @endforeach
