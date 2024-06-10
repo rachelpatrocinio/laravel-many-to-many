@@ -15,7 +15,7 @@
             <ul>
               @foreach($types as $type)
               <li>
-                <h4>{{ $type->name}}</h4>
+                <h4><a href="{{ route('admin.types.show', $type)}}">{{ $type->name}}</a></h4>
                 <p>{{ $type->description}}</p>
               </li>
               @endforeach

@@ -42,7 +42,7 @@ class TypeController extends Controller
      */
     public function edit(Type $type)
     {
-        //
+        return view('admin.types.edit', compact('type'));
     }
 
     /**
