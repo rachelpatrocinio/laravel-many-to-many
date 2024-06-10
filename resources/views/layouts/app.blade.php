@@ -19,4 +19,5 @@
         </main>
     </div>
 </body>
+@include('partials.footer')
 </html>

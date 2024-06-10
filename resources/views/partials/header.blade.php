@@ -11,24 +11,24 @@
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class=" container collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="container collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto">
                 <li class="nav-item">
                     <a class="nav-link" href="{{url('/') }}">{{ __('Home') }}</a>
                 </li>
-                <li>
+                <li class="nav-item">
                     <a class="nav-link" href="{{url('/aboutme') }}">{{ __('About Me') }}</a>
                 </li>
-                <li>
+                <li class="nav-item">
                     <a class="nav-link" href="{{route('admin.projects.index') }}">{{ __('Projects') }}</a>
                 </li>
                 <li>
                     <a class="nav-link" href="{{route('admin.types.index') }}">{{ __('Types') }}</a>
-                </li>
+                </li class="nav-item">
                 <li>
                     <a class="nav-link" href="{{route('admin.technologies.index') }}">{{ __('Technologies') }}</a>
                 </li>
-                <li>
+                <li class="nav-item">
                     <a class="nav-link" href="{{route('admin.projects.create') }}">{{ __('Add Project') }}</a>
                 </li>
             </ul>
