@@ -36,13 +36,13 @@
             <div class="mt-5">
                 <img src="{{ Vite::asset('resources/img/related.png')}}" alt="Related Projects">
             </div>
-            @foreach($project->type->projects as $project)
-            <p class="ms-5 related"><a href="{{ route('admin.projects.show', $project)}}">{{$project->project_title}}</a></p>
+            @foreach($project->type->projects as $projectRelated)
+            <p class="ms-5 related"><a href="{{ route('admin.projects.show', $projectRelated)}}">{{$projectRelated->project_title}}</a></p>
             @endforeach
         </div>
         <div class="d-flex justify-content-between mt-3">
             <div>
-                <a href="{{ route('admin.projects.index', $project)}}">
+                <a href="{{ route('admin.projects.index')}}">
                     <button class="bg-lightbrown">Go Back to Projects</button>
                 </a>
                 <a href="{{ route('admin.projects.edit', $project)}}">
