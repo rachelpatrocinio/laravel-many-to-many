@@ -10,40 +10,20 @@
             <button class="bg-brown">Add New Project</button>
           </a>
         </div>
-          <table class="table my-5">
-              <thead>
-                <tr>
-                  <th scope="col">Project Title</th>
-                  <th scope="col">Slug</th>
-                  <th scope="col">Project Description</th>
-                  <th scope="col">Github Url</th>
-                  <th scope="col">Details</th>
-                  <th scope="col">Edit</th>
-                  <th scope="col">Delete</th>
-                </tr>
-              </thead>
-              <tbody>
-              @foreach($projects as $project)
-                <tr>
-                  <td>{{$project->project_title}}</td>
-                  <td>{{$project->slug}}</td>
-                  <td>{{$project->project_description}}</td>
-                  <td><a target="_blank" href="{{ $project->github_url }}">{{$project->github_url}}</a></td>
-                  <td><a href="{{ route('admin.projects.show', $project)}}">Details</a></td>
-                  <td><a href="{{ route('admin.projects.edit', $project)}}">Edit</a></td>
-                  <td>
-                    <form action="{{ route('admin.projects.destroy', $project)}}" method="POST">
-                      @method('DELETE')
-                      @csrf
-                      <button class="btn delete-btn">
-                        <img src="{{Vite::asset('resources/img/icons/bin.png')}}" alt="Delete">
-                      </button>
-                    </form>
-                  </td>
-                </tr>
-              @endforeach
-              </tbody>
-            </table>
+        <div class="projects-cards p-0">
+          @foreach($projects as $project)
+          <div class="card my-4 p-4 flex-row justify-content-between align-items-end">
+            <div>
+              <h4><a href="{{ route('admin.projects.show', $project)}}">{{$project->project_title}}</a></h4>
+              <h6>{{$project->slug}}</h6>
+              <p><a target="_blank" href="{{ $project->github_url }}">{{$project->github_url}}</a></p>
+            </div>
+            <a href="{{ route('admin.projects.show', $project)}}">
+              <button class="bg-lightbrown">More Details</button>
+            </a>
+          </div>
+          @endforeach
+        </div>
       </div>
   </div>
 </section>
