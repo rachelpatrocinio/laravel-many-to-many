@@ -11,6 +11,9 @@
                 <a href="{{ route('admin.technologies.index')}}">
                     <button class="bg-brown">Go Back</button>
                 </a>
+                <a href="{{ route('admin.technologies.edit', $technology)}}">
+                    <button class="bg-lightbrown">Edit</button>
+                </a>
             </div>
         </div>
     </div>
