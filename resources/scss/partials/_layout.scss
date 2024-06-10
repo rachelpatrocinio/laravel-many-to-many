@@ -57,6 +57,13 @@ a{
 .technologies-list img{
     &:hover{
         scale: 1.2;
+        transition: 0.5s;
+    }
+}
+
+.projects-cards .card{
+    &:hover{
+        border-color: #694E3C;
     }
 }
 

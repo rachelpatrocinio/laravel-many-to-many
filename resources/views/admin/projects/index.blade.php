@@ -14,7 +14,7 @@
           @foreach($projects as $project)
           <div class="card my-4 p-4 flex-row justify-content-between">
             <div>
-              <h4><a href="{{ route('admin.projects.show', $project)}}">{{$project->project_title}}</a></h4>
+              <h4 class="card-title"><a href="{{ route('admin.projects.show', $project)}}">{{$project->project_title}}</a></h4>
               <h6>{{$project->slug}}</h6>
               <p><a target="_blank" href="{{ $project->github_url }}">{{$project->github_url}}</a></p>
             </div>
