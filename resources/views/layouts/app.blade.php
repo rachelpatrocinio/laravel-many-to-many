@@ -12,7 +12,7 @@
 </head>
 
 @include('partials.header')
-<body>
+<body class="d-flex flex-column min-vh-100">
     <div id="app">
         <main class="main-content">
             @yield('content')
