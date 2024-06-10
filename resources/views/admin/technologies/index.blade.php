@@ -8,7 +8,7 @@
                 <button class="bg-brown">Add Technology</button>
             </a>
         </div>
-        <div class="mt-5">
+        <div class="my-5">
             <ul class="technologies-list">
             @foreach($technologies as $technology)
             <li>
