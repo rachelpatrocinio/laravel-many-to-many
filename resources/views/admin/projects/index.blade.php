@@ -16,7 +16,7 @@
             <div>
               <h4 class="card-title"><a href="{{ route('admin.projects.show', $project)}}">{{$project->project_title}}</a></h4>
               <h6>{{$project->slug}}</h6>
-              <p><a target="_blank" href="{{ $project->github_url }}">{{$project->github_url}}</a></p>
+              <p class="github"><a target="_blank" href="{{ $project->github_url }}">{{$project->github_url}}</a></p>
             </div>
             <div>
               <form class="mb-5 text-end" action="{{ route('admin.projects.destroy', $project)}}" method="POST">

@@ -48,13 +48,16 @@ a{
 }
 
 .related a,
-.types-list a{
+.types-list a,
+.type a,
+.github a{
     &:hover{
         text-decoration: underline;
     }
 }
 
-.technologies-list img{
+.technologies-list img,
+.tech-list img{
     &:hover{
         scale: 1.2;
         transition: 0.5s;

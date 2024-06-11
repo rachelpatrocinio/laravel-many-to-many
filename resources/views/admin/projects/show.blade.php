@@ -11,21 +11,25 @@
                 <img src="{{Vite::asset('resources/img/slug.png')}}" alt="Project Title">
                 <h3 class="ms-5">{{$project->slug}}</h3>
             </div>
-            <div class="mb-3">
+            <div class="mb-3 github">
                 <img src="{{Vite::asset('resources/img/github-url.png')}}" alt="Github Url">
                 <p class="ms-5"><a target="_blank" href="{{ $project->github_url }}">{{$project->github_url}}</a></p>
             </div>
             <div class="mb-3">
                 <img src="{{Vite::asset('resources/img/type.png')}}" alt="Github Url">
                 @if($project->type)
-                <p class="ms-5">{{$project->type->name}}</p>
+                <p class="ms-5 type">
+                    <a href="{{ route('admin.types.show', $project->type)}}">{{$project->type->name}}</a>
+                </p>
                 @endif
             </div>
             <div class="mb-3">
                 <img src="{{Vite::asset('resources/img/technologies.png')}}" alt="Technologies">
                 <div class="d-flex tech-list">
                     @foreach($project->technologies as $technology)
-                    <img class="ms-5" src="{{ Vite::asset("resources/img/technologies/$technology->thumb")}}" alt="{{ $technology->name }}">
+                    <a href="{{ route('admin.technologies.show', $technology)}}">
+                        <img class="ms-5" src="{{ Vite::asset("resources/img/technologies/$technology->thumb")}}" alt="{{ $technology->name }}">
+                    </a>
                     @endforeach
                 </div>
             </div>
